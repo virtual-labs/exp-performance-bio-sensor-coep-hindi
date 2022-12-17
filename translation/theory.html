@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="" name="description">
+<meta content="" name="author">
+
+<meta name="experiment-short-name" content="performance-bio-sensor">
+<meta name="developer-institute" content="coep">
+<meta name="learning-unit" content="SIMULATE THE PERFORMANCE OF A BIO-SENSOR">
+<meta name="task-name" content="Theory">
+
+<!-- For iPhone -->
+<meta name="msapplication-TileColor" content="#4076e0">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#4076e0">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#4076e0">
+<title>वर्चुअल लैब्स</title>
+<link rel="shortcut icon" href="./assets/images/favicon.ico">
+<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+<link rel="stylesheet" href="./assets/css/vlabs-style.css">
+
+<script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<style>
+h1 {
+font-size: 1.8rem;
+}
+h2 {
+font-size: 1.4rem;
+}
+h3 {
+font-size: 1.2rem;
+}
+
+h2, h3 {
+font-weight: 800;
+}
+</style>
+</head>
+<body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+
+<header class="vlabs-header sticky-top bg-white">
+<nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+
+<button class="navbar-toggler px-4" type="button" onclick="toggle()">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="d-flex justify-content-center">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</div>
+
+<div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center">
+<ul class="navbar-nav ml-auto text-center d-flex flex-md-row">
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in">होम</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/participating-institutes">भागीदार</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/contact-us">संपर्क</a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+<div class="row d-flex justify-content-between">
+<div class="flex-column">
+
+<div class="row py-4 px-4 breadcrumbs">
+<a href="https://www.vlab.co.in/broad-area-electrical-engineering">
+इलेक्ट्रिकल इंजीनियरिंग
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in">
+सेंसर्स मॉडलिंग और सिमुलेशन लैब
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in/List of experiments.html">
+प्रयोग
+</a>
+</div>
+
+</div>
+<div class="flex-column">
+<div id="plugin-bug-report"></div>
+<div id="plugin-rating"></div>
+</div>
+</div>
+<div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+<div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</h5>
+<button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body nav-menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+<div class="text-center fix-spacing">
+<h3 id="simulate-the-performance-of-a-bio-sensor">एक बायो सेंसर के कार्य को सिमुलेट करें</h3>
+
+</div>
+<h3 id="prerequisite">पूर्वापेक्षा</h3>
+<p>इस प्रयोग को करने से पहले, छात्र को निम्न के बारे में ज्ञान होना चाहिए</p>
+<ol>
+<li>एक डायोड और LED की कार्यप्रणाली</li>
+<li>प्रकाश स्पेक्ट्रम</li>
+<li>LED के प्रकाश आउटपुट को प्रभावित करने वाले विभिन्न कारकों का प्रभाव, जैसे तापमान, वेवलेंथ, आदि।</li>
+</ol>
+<h4 id="what-is-a-pulse-rate"><em>पल्स रेट क्या है ?</em></h4>
+<p>पल्स वह रेट है, जिससे मानव हृदय धड़कता है।  पल्स को आमतौर पर हार्ट रेट भी कहा जाता है, जो हर मिनट  दिल की धड़कन की संख्या (bpm) होती है। जब हृदय मानव शरीर में रक्त को पंप करता है, त्वचा की सतह, जैसे कलाई, गर्दन या ऊपरी बांह के करीब रक्त वाहिकाओं में पल्स महसूस कर सकते हैं।  पल्स रेट गिनना यह पता लगाने का एक सरल तरीका है कि दिल कितनी तेजी से धड़क रहा है।  हालांकि, दिल की धड़कन की लय और मजबूती पर भी ध्यान दिया जा सकता है, साथ ही यह भी कि रक्त वाहिका सख्त या नरम महसूस हो रहीं है या नहीं।  मानव के हार्ट रेट या लय में परिवर्तन, कमजोर नाड़ी, अथवा सख्त रक्त वाहिका, हृदय रोग या किसी अन्य समस्या के कारण हो सकती है। सुबह-सुबह जागने के बाद लेकिन बिस्तर से बाहर निकलने से पहले, नाड़ी की जांच कर सकते हैं।  इसे रेस्टिंग पल्स कहते हैं।  पल्स रेट को एक निर्धारित अवधि (कम से कम 15 से 20 सेकंड) में बीट्स की गिनती करके और प्रति मिनट बीट्स की संख्या प्राप्त करने के लिए उस संख्या को गुणा करके मापा जा सकता है।  मिनट-दर-मिनट हमारी पल्स बदलती रहती है। व्यायाम करने, बुखार होने, या तनाव में होने पर यह तेज होती है। आराम की स्थिति में यह धीमी होती है।</p>
+<h3 id="importance-of-pulse-measurement">पल्स मापन का महत्व:</h3>
+<h4 id="pulse-is-checked-to"><em>पल्स की जाँच इसलिए की जाती है:</em></h4>
+<ul>
+<li>देखने के लिये कि दिल कितना अच्छा काम कर रहा है।  आपातकालीन स्थिति में, पल्स रेट यह जांचने में मदद कर सकती है कि हृदय पर्याप्त रक्त पंप कर रहा है या नहीं।</li>
+<li>लक्षणों के कारण का पता लगाने, जैसे कि अनियमित या तेज धड़कन (पल्पिटेशन्स), चक्कर आना, बेहोशी, सीने में दर्द या सांस की तकलीफ।</li>
+<li>चोट लगने के बाद या रक्त वाहिका अवरुद्ध होने पर रक्त प्रवाह की जाँच करें।</li>
+<li>धीमी हृदय गति का कारण बनने वाली दवाओं या बीमारियों की जाँच करें।  डॉक्टर, हृदय रोगियों को या  हृदय गति को धीमा करने वाली दवाओं के साथ चिकित्सा उपचार लेने वाले व्यक्तियों को हर दिन पल्स की जांच करने के लिए कह सकते हैं।</li>
+<li>सामान्य स्वास्थ्य और फिटनेस स्तर की जाँच करें। आराम करते समय, व्यायाम के दौरान, या जोरदार व्यायाम के तुरंत बाद, पल्स रेट की जाँच करना समग्र फिटनेस स्तर के बारे में महत्वपूर्ण जानकारी दे सकती है।</li>
+</ul>
+<h3 id="measurement">माप:</h3>
+<p>पल्स माप के लिए एक प्रोब विकसित करने के लिए दो तरीके हैं।  पहला ट्रांस्मिटेन्स है, दूसरा रिफ्लेक्टेन्स  है।  जांच के भीतर प्रोब में तत्व की स्थिति के अनुसार इन तरीकों में अंतर होता है। एक ट्रांस्मिटन्स प्रोब में एक तरफ LED और दूसरी तरफ एक फोटोडायोड (लाइट डिटेक्टर) होता है। एक टिश्यू जिसे इमेज करना है (आमतौर पर एक उंगली या कान), उसको दोनों के बीच लगाया जाता है।</p>
+<center><img src="images/image1.jpg" title=""></center>
+
+<p>एक रिफ्लेक्टेन्स प्रोब में LED और फोटोडायोड एक ही तरफ होते हैं।  इसे अंतर्निहित हड्डी के सामने एक बिंदु पर रखा जाना चाहिए।  प्रकाश LED द्वारा उत्सर्जित होता है, टिश्यू और रक्त वाहिकाओं से गुजरता है, हड्डी से टकरा कर परावर्तित होता है, फिर से टिश्यू से गुजरता है, और फिर डिटेक्टर में जाता है।
+प्रकाश की एक महत्वपूर्ण मात्रा रिफ्लेक्टेन्स सेटअप में त्वचा से परावर्तित  होगी, और ट्रांस्मिटन्स सेटअप के विपरीत प्रकाश डिटेक्ट हो जाएगा।  इस प्रकार, रिफ्लेक्टेन्स प्रोब्स में ट्रांस्मिटन्स प्रोब्स की तुलना में उच्च ऑफसेट और कम सिग्नल-टू-नॉइज़ अनुपात होता है।  रिफ्लेक्टेन्स सेटअप्स में प्रकाश की काफी अधिक मात्रा की आवश्यकता होती है।  इस प्रकार या तो अधिक LED या अधिक फोटोडायोड्स का उपयोग करने की आवश्यकता होती है।
+ट्रांस्मिटन्स प्रोब्स आमतौर पर एक उंगली या कान पर रखी जाती हैं और लगाने और हटाने के लिए बहुत सुविधाजनक होते हैं। रिफ्लेक्टेन्स प्रोब्स को  माथे या स्टर्नम पर रखा जा सकता है।  उनका लाभ यह है कि रोगी के आकार (बहुत बड़े वयस्कों से लेकर शिशु तक) की परवाह किए बिना; अटैचमेंट स्थल हमेशा समान होता है।  दोनों, ट्रांस्मिटेन्स और रिफ्लेक्टेन्स प्रोब्स का नैदानिक ​​रूप से उपयोग किया जाता है, हालांकि सिग्नल विश्लेषण की सरलता और अटैचमेंट की सुविधा के कारण ट्रांस्मिटेन्स प्रोब अधिक लोकप्रिय है।</p>
+<h3 id="photoplethysmograph">फोटोप्लेथिस्मोग्राफ:</h3>
+<p>प्रकाश का उपयोग करके शरीर के हिस्से में रक्त की मात्रा को मापने के लिए उपयोग किया जाने वाला उपकरण आमतौर पर फोटो-प्लेथिस्मोग्राफ के रूप में जाना जाता है।  यह रक्त प्रवाह की पल्सेटाइल नेचर के कारण आपकी उंगली से गुजरने वाले प्रकाश की मात्रा में भिन्नता को मापता है।  उंगली के एक तरफ एक प्रकाश स्रोत और दूसरी तरफ LDR (कैडमियम सल्फाइड (CdS) सेल) या एक फोटो डायोड या एक फोटोट्रांज़िस्टर जैसा लाइट सेंसिटिव ट्रांसड्यूसर रखा जाता है।  ट्रांसड्यूसर में आउटपुट की भिन्नता को मोनिटर करके उंगली में रक्त के प्रवाह का एक संकेत प्राप्त होता है।  ऐसी ही एक प्रणाली का एक साधारण ब्लॉक डायग्राम यहाँ दिखाया गया है।</p>
+<center><img src="images/image2.jpg" title=""></center>
+
+<p>एक विशिष्ट पल्स ऑक्सीमीटर, दो अलग-अलग वेवलेंथस पर संचालित छोटे LED की एक जोड़ी के मूल सिद्धांत का उपयोग करता है।  एक 660nm वेवलेंथ वाला लाल LED, दूसरा 910nm  वेवलेंथ वाला एक इंफ़्रारेड LED। LED को एक फोटोडायोड के सामने रखे जाने के लिए डिज़ाइन किया गया है, जो LED से प्रकाश का पता लगाता है। चूँकि केशिकाओं में रक्त की मात्रा वास्तविक रक्तचाप पर निर्भर करती है, जो हार्ट रेट साइकिल के कारण भिन्न होती है, हार्ट रेट को भी मापा जा सकता है।  दो वेवलेंथस को इस कारण से चुना जाता है कि लगभग 660nm पर  डिओक्सीजेनेटेड हीमोग्लोबिन का अवशोषण उच्च होता है, और 910m पर ऑक्सीजेनेटेड हीमोग्लोबिन का अवशोषण उच्च होता है।  ऑक्सीजेनेटेड हीमोग्लोबिन लाल प्रकाश को संचारित होने देता है और अधिक इंफ़्रारेड प्रकाश अवशोषित करता है, जबकि डीऑक्सीजेनेटेड हीमोग्लोबिन इंफ़्रारेड को संचारित होने देता है और अधिक लाल प्रकाश अवशोषित करता है।  आमतौर पर स्रोत (LED) और रिसीवर (फोटोडायोड) जो अच्छे रक्त प्रवाह के साथ एक ट्रांसलूसेंट साइट के रूप में कार्य करते हैं, उसके बीच एक उंगली रखी जाती है।  फोटोडायोड करंट पैदा करता है, जो उसपर आनेवाले प्रकाश के रैखिक अनुपात में होता है।  एक फोटोडायोड लाल और इंफ्रारेड प्रकाश के बीच अंतर नहीं कर सकता, लेकिन इसे समायोजित करने के लिए, माइक्रोप्रोसेसर सिस्टम बारी-बारी से प्रत्येक LED को ऑन और ऑफ करता है।  पल्स ऑक्सीमीटर बार-बार फोटोडायोड आउटपुट का नमूना लेता है जब लाल LED ऑन होता है, जब इंफ्रारेड LED ऑन होता है और जब दोनों बंद होते हैं।  दोनों LED बंद होने के समय नमूना लेने से, पल्स ऑक्सीमीटर मौजूद किसी भी परिवेश प्रकाश को घटाने में सक्षम होता है।</p>
+<h3 id="design-considerations">डिज़ाइन के पहलू :</h3>
+<h4 id="1-motion-artifacts">1. मोशन आर्टिफैक्ट्स :</h4>
+<p>मोशन आर्टिफैक्ट एक बड़ी समस्या है, जो रोगी की मांसपेशियों की गति के कारण देखी जाती है।  यह फाल्स पल्स को प्रेरित करता है जो वास्तविक पल्स के समान होती हैं।  संसाधित होने पर फाल्स पल्स गलत परिणाम दे सकती हैं।  यह समस्या उन रोगियों में विशेष रूप से महत्वपूर्ण है, जो मोनिटरिंग के दौरान स्थिर नहीं रहते और मुख्य रूप से सक्रिय शिशुओं में होती है।  इन आर्टिफैक्ट्स को कम करने के लिए डिजिटल सिग्नल प्रोसेसिंग की जाती है और प्रदर्शित होने से पहले कई सेकंड्स में पल्स के औसत मूल्यों को लिया जाता है।</p>
+<h4 id="2-optical-interference">2. ऑप्टिकल इंटरफेरेंस:</h4>
+<p>सभी पल्स मॉनिटर्स उज्ज्वल बाहरी प्रकाश स्रोतों से प्रभावित होते हैं।  सटीक माप प्राप्त करने के लिए, ऑप्टिकल इंटरफेरेंस के संभावित स्रोतों को नियंत्रित किया जाना चाहिए।  ऑप्टिकल इंटरफेरेंस तब होता है, जब किसी बाहरी स्रोत (एम्बिएंट लाइट) से उज्ज्वल प्रकाश उंगली से गुज़रे बिना सीधे फोटोडायोड तक पहुँचता है। इससे बचने के लिए उचित रूप से ध्यान दिया जाना चाहिये।</p>
+<h4 id="3-effect-of-temperature">3. तापमान का प्रभाव:</h4>
+<p>तापमान शिखर वेवलेंथ, स्पेक्ट्रल लाइन-विड्थ और LED की आउटपुट पॉवर को प्रभावित करता है।  एक LED आधारित सफेद प्रकाश स्रोत में इससे, रंग निर्देशांक, रंग तापमान, कलर रेंडरिंग इंडेक्स, लुमिनस एफिशिएंसी में परिवर्तन हो सकता है।  स्रोत की एफिशिएंसी मौसम (गर्म गर्मी, ठंडी सर्दी) या यहाँ तक ​​कि दिन के समय (गर्म दिन ठंडी रात) से बदल जाएगी।  यह प्रयोगात्मक रूप से सिद्ध है कि जब तापमान 0°C से 50°C तक बढ़ जाता है, तो पल्स मॉनीटर सटीकता पर LED की वेवलेंथ में बदलाव का प्रभाव नगण्य होता है।</p>
+<h4 id="4-effect-of-distance-between-source-and-sensor">4. स्रोत और सेंसर के बीच दूरी का प्रभाव:</h4>
+<p>LED और फोटोडायोड के बीच की दूरी एक रिफ्लेक्टेन्स पल्स मीटर सेंसर डिज़ाइन करते समय प्रमुख डिज़ाइन के पहलुओं में से एक है।  फोटोडायोड द्वारा अधिग्रहित AC से DC सिग्नल का अनुपात LED और फोटोडायोड के बीच की दूरी के साथ लगभग रैखिक रूप से बढ़ जाता है।  ऑप्टिकल तत्वों के बीच अधिक अलगाव का मतलब है कि अधिक टिश्यू प्रकाश को अवशोषित और परावर्तित करने में सक्षम है।  हालांकि, जैसे-जैसे तत्वों के बीच अलगाव बढ़ता है, एक अच्छे सिग्नल का उत्पादन करने के लिए आवश्यक LED शक्ति लगभग चरघातांकीय रूप  से बढ़ती है।  इस प्रकार, ऑप्टिकल तत्वों के बीच आदर्श अलगाव में सिग्नल की गुणवत्ता और बिजली की खपत को संतुलित करना शामिल है।  हालांकि यह महत्वपूर्ण है कि फोटोडायोड को LED के बहुत करीब न रखें।  यदि फोटोडायोड को LED के बहुत करीब रखा जाता है, तो त्वचा की रक्त रहित परतों द्वारा इंसिडेंट फोटोन्स के मल्टीप्ल स्कैटरिंग द्वारा प्राप्त बड़े DC घटक के कारण फोटोडायोड संतृप्त हो जाएगा।</p>
+<h3 id="advantages">फायदे:</h3>
+<ul>
+<li>कम समय में ऑपरेशन</li>
+<li>उपयोग करने में आसान</li>
+<li>सटीक रीडिंग्स</li>
+<li>माप का नॉन-इन्वेसिव मेथड</li>
+<li>विश्वसनीय</li>
+</ul>
+<h3 id="limitations">सीमाएँ:</h3>
+<p>इस यंत्र का उपयोग प्रति मिनट पल्स की संख्या मापने के लिए किया जाता है।  यह रक्त प्रवाह की मात्रा पर्याप्त या अपर्याप्त है या नहीं, को नहीं माप सकता।  साथ ही यह खून में मौजूद हीमोग्लोबिन की मात्रा के बारे में नहीं बता सकता।</p>
+
+</div>
+</div>
+</div>
+<footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+<div class="row px-5 mx-0">
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">कम्युनिटी लिंक्स</span>
+<a href="https://www.sakshat.ac.in/" class="text-light">साक्षात पोर्टल</a>
+<a href="http://outreach.vlabs.ac.in/" class="text-light">आउटरीच पोर्टल</a>
+<a href="https://vlab.co.in/faq" class="text-light">FAQ: वर्चुअल लैब्स</a>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमसे संपर्क करें</span>
+<span> फोन: सामान्य जानकारी: 011-26582050 </span>
+<span> ईमेल: support@vlabs.ac.in </span>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमारा अनुसरण करें</span>
+<div class="social-links">
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+<i class="fa fa-twitter"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+<i class="fa fa-facebook"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+<i class="fa fa-youtube"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+<i class="fa fa-linkedin"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+<a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+&nbsp;&amp;&nbsp;
+<a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> क्रिएटिव कॉमन्स (CC BY-NC-SA 4.0) </a>
+</div>
+</footer>
+
+<script src="./assets/js/toggleSidebar.js"></script>
+
+
+
+</body></html>
